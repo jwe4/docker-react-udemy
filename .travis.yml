@@ -1,6 +1,12 @@
 sudo: required
+
+language: generic
+
 services:
   - docker
 
 before_install:
   - docker build -t jwe4/docker-react-udemy -f Dockerfile.dev .
+
+script:
+  - docker run jwe4/docker-react-udemy npm run test -- --coverage
